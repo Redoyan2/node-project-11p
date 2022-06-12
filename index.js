@@ -28,8 +28,10 @@ app.get('/user/:id', (req, res)=>{
 })
 
 app.post('/user', (req, res)=>{
-  console.log(req.body);
-  console.log('post method success')
+  const user = req.body;
+  user.id = users.length+1;
+  users.push(user)
+  res.send(user);
 })
 
 app.listen(port, () => {
